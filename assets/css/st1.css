@@ -86,12 +86,12 @@ td, th{
 	font-family: sans-serif;
 }
 
-tr.fila1{
+tr.fila0{
 	background: #eeeeee;
 }
 
-tr.fila0{
-	background: #aaaaaa;
+tr.fila1{
+	background: #cccccc;
 }
 .form-input{
 	margin: 1rem;
@@ -121,6 +121,7 @@ tr.fila0{
 
 .btn-update{
 	background: #f1c40f;
+	color: #333333;
 	padding: .5rem;
 	border-radius: 5px;
 	transition: 500ms;
@@ -136,9 +137,11 @@ tr.fila0{
 
 .btn-delete{
 	background: #e74c3c;
+	color: #ffffff;
 	padding: .5rem;
 	border-radius: 5px;
 	transition: 500ms;
+	text-decoration: none;
 }
 
 .btn-delete:hover{
@@ -152,9 +155,9 @@ tr.fila0{
 .btn-send{
 	font-family: sans-serif;
 	background: #3498db;
+	color: #ffffff;
 	padding: .5rem;
 	border-radius: 5px;
-	color: #eeeeee;
 	font-size: 15px;
 	width: 100px;
 	text-align: center;
@@ -178,4 +181,14 @@ tr.fila0{
 .subtit{
 	padding-top: 2rem;
 	padding-bottom: 2rem;
+}
+
+.good{
+	background: #7bed9f;
+	color: #2ed573;
+}
+
+.error{
+	background: #ff7675;
+	color: #d63031;
 }
