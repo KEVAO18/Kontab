@@ -11,5 +11,11 @@ function routes(){
 		inicio();
 	}elseif ($page == "stock") {
 		stock();
+	}elseif ($page == "meses") {
+		if (isset($_GET['mes'])) {
+			tabla_mes();
+		}else{
+			meses();
+		}
 	}
 }

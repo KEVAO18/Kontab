@@ -30,7 +30,7 @@ function stock(){
 		      <td><?=$row['nombre']?></td>
 		      <td><?=$row['precio unitario']?></td>
 		      <td><?=$row['disponibles']?></td>
-		      <td><a class="btn-update" onclick="var codeU = '<?=$row['Codigo']?>'">Actualizar</a> <a href="assets/back/dbconect/querys.php?query=2&cd=<?=$row['Codigo']?>" class="btn-delete" id="del">Eliminar</a></td>
+		      <td><a href="assets/back/dbconect/querys.php?query=2&cd=<?=$row['Codigo']?>" class="btn-delete" id="del">Eliminar</a></td>
 		    </tr>
 		<?php
 		if ($i == 0) {

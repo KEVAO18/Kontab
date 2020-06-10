@@ -14,3 +14,20 @@ function add(){
     })
   });
 }
+
+$(document).ready(mes());
+
+function mes(){
+  $("#addMes").on("click", function(e){
+    e.preventDefault();
+    var frm = $("#form-mes").serialize();
+    $.ajax({
+      type: "POST",
+      url: "assets/back/dbconect/querys.php?query=3",
+      dataType: "json",
+      data: frm
+    }).done(function (info) {
+      location.reload();
+    })
+  });
+}

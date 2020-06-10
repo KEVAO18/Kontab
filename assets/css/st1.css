@@ -93,6 +93,15 @@ tr.fila0{
 tr.fila1{
 	background: #cccccc;
 }
+
+tr.fila2{
+	background: #ff7675;
+}
+
+tr.fila3{
+	background: #2ecc71;
+}
+
 .form-input{
 	margin: 1rem;
 	width: 50%;
@@ -178,6 +187,31 @@ tr.fila1{
 	transition: 500ms;
 }
 
+.btn-send2{
+	font-family: sans-serif;
+	background: #3498db;
+	color: #ffffff;
+	border-radius: 5px;
+	border: 0px;
+	font-size: 15px;
+	text-align: center;
+	transition: 500ms;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.btn-send2:hover{
+	font-family: sans-serif;
+	background: #3498db;
+	padding: 1rem;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px #2980b9;
+	color: #eeeeee;
+	font-size: 15px;
+	text-align: center;
+	transition: 500ms;
+}
+
 .subtit{
 	padding-top: 2rem;
 	padding-bottom: 2rem;
@@ -191,4 +225,20 @@ tr.fila1{
 .error{
 	background: #ff7675;
 	color: #d63031;
+}
+
+a.mes{
+	color: #333333;
+	text-decoration: none;
+}
+
+h2.mes{
+	padding-top: 1rem;
+	padding-left: 2rem;
+}
+
+a.del-mes{
+	color: #333333;
+	text-decoration: none;
+	font-size: 15px;
 }

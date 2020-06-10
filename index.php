@@ -1,5 +1,6 @@
 <?php
 	include "assets/back/dbconect/rutas.php";
+	$vistas = array('inicio', 'stock', 'meses');
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +9,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Contabilidad</title>
-
+	<!-- Font Awesome -->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css'>
 	<link rel="stylesheet" href="assets/css/st1.css">
 </head>
 <body>
@@ -17,9 +19,13 @@
 			Kontab
 		</div>
 		<ul class="ul-slide">
-			<li class="li-slide"><a href="index.php?page=inicio" title="inicio">Inicio</a></li>
-			<li class="li-slide"><a href="index.php?page=stock" title="Stock">Stock</a></li>
-			<?php /*for para los meses*/?>
+			<?php
+				foreach ($vistas as $vistas) {
+				?>
+					<li class="li-slide"><a href="index.php?page=<?=$vistas?>" title="<?=$vistas?>"><?=$vistas?></a></li>
+				<?php
+				}
+			?>
 		</ul>
 	</div>
 
