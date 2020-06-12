@@ -10,6 +10,12 @@
 
 .bg-slide{
 	background-color: var(--main-color);
+	transition: .5s;
+}
+
+.bg-slide:hover{
+	box-shadow: 5px 0px 30px rgb(0,0,0,.5);
+	transition: .5s;
 }
 
 .nav-open{
@@ -206,6 +212,31 @@ tr.fila3{
 	padding: 1rem;
 	border-radius: 5px;
 	box-shadow: 1px 1px 2px #2980b9;
+	color: #eeeeee;
+	font-size: 15px;
+	text-align: center;
+	transition: 500ms;
+}
+
+.btn-delete2{
+	font-family: sans-serif;
+	background: #e74c3c;
+	color: #ffffff;
+	border-radius: 5px;
+	border: 0px;
+	font-size: 15px;
+	text-align: center;
+	transition: 500ms;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.btn-delete2:hover{
+	font-family: sans-serif;
+	background: #e74c3c;
+	padding: 1rem;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px #c0392b;
 	color: #eeeeee;
 	font-size: 15px;
 	text-align: center;
