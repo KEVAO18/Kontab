@@ -14,7 +14,7 @@
 			$precio = $_POST['price'];
 			$cantidad = $_POST['units'];
 
-			$add = "INSERT INTO `stock`(`Codigo`, `nombre`, `precio unitario`, `disponibles`) VALUES ('$codigo', '$producto', '$precio', '$cantidad');";
+			$add = "INSERT INTO `stock`(`Codigo`, `Nombre`, `Precio`, `Disponibles`) VALUES ('$codigo', '$producto', '$precio', '$cantidad');";
 			$exe_add = $con->query($add);
 
 			echo json_encode(array('msg' => "add"));
@@ -22,17 +22,17 @@
 			// ------------------------- aqui se eliminan los productos del stock ------------------------
 
 			$codigo = $_GET['cd'];
-			$del = "DELETE FROM `stock` WHERE codigo = '$codigo';";
+			$del = "DELETE FROM `stock` WHERE Codigo = '$codigo';";
 			$exe_del = $con->query($del);
 
 			header("location: ../../../?page=stock");
 		}elseif($query == "3"){
 			// ------------------------- aqui se crea la vista del mes ------------------------
 
-			$year = $_POST['año'];
+			$year = $_POST['year'];
 			$mes = $_POST['mes'];
 
-			$add = "INSERT INTO `meses`(`id`, `año`, `mes`) VALUES (NULL, '$year', '$mes');";
+			$add = "INSERT INTO `meses`(`id`, `year`, `mes`) VALUES (NULL, '$year', '$mes');";
 
 			$exe_add = $con->query($add);
 
@@ -57,15 +57,15 @@
 			$exe_reg =$con->query($reg);
 
 			while ($prods=$exe_reg->fetch_assoc()){
-				$dis = $prods['disponibles'];
+				$dis = $prods['Disponibles'];
 
 				if ($dis < $cant ) {
 					header("location: ../../../?page=meses&mes=".$month."&year=".$year."&error=noDis");
 					$error = "True";
 				}else{
 					$error = "False";
-					$name = $prods['nombre'];
-					$unit = $prods['precio unitario'];
+					$name = $prods['Nombre'];
+					$unit = $prods['Precio'];
 				}
 			}
 
@@ -75,7 +75,7 @@
 
 				$dispo = $dis - $cant;
 
-				$update = "UPDATE `stock` SET `disponibles` = '$dispo' WHERE `stock`.`Codigo` = '$prod';";
+				$update = "UPDATE `stock` SET `Disponibles` = '$dispo' WHERE `stock`.`Codigo` = '$prod';";
 
 				$exe_update = $con->query($update);
 
@@ -103,17 +103,17 @@
 					$name = $data['prod'];
 				}
 
-				$get = "SELECT * FROM `stock` WHERE `stock`.`nombre` = '$name';";
+				$get = "SELECT * FROM `stock` WHERE `stock`.`Nombre` = '$name';";
 				$exe_get = $con->query($get);
 
 				while ($data=$exe_get->fetch_assoc()){
-					$dispo = $data['disponibles'];
+					$dispo = $data['Disponibles'];
 					$code = $data['Codigo'];
 				}
 
 				$disp = $dispo + $dis;
 
-				$update = "UPDATE `stock` SET `disponibles` = '$disp' WHERE `stock`.`Codigo` = '$code';";
+				$update = "UPDATE `stock` SET `Disponibles` = '$disp' WHERE `stock`.`Codigo` = '$code';";
 
 				$exe_update = $con->query($update);
 
@@ -207,7 +207,7 @@
 				$gastos_total = $gastos_total + $gastos['neto'];
 			}
 
-			$query3 = "SELECT * FROM `totales` WHERE `año` = '$year' AND `mes` = '$month';";
+			$query3 = "SELECT * FROM `totales` WHERE `year` = '$year' AND `mes` = '$month';";
 			$exe_query3 = $con->query($query3);
 
 			$i = 0;
@@ -220,12 +220,12 @@
 
 			if ($i == 0) {
 
-				$add = "INSERT INTO `totales`(`id`, `año`, `mes`, `total_ventas`, `total_gastos`, `total_neto`) VALUES (NULL, '$year', '$month', '$ventas_total', '$gastos_total', '$total');";
+				$add = "INSERT INTO `totales`(`id`, `year`, `mes`, `total_ventas`, `total_gastos`, `total_neto`) VALUES (NULL, '$year', '$month', '$ventas_total', '$gastos_total', '$total');";
 				$exe_add = $con->query($add);
 
 				header("location: ../../../?page=meses&mes=".$month."&year=".$year);
 			}else{
-				$update = "UPDATE `totales` SET `total_ventas` = '$ventas_total', `total_gastos` = '$gastos_total', `total_neto` = '$total' WHERE `año` = '$year' AND `mes` = '$month';";
+				$update = "UPDATE `totales` SET `total_ventas` = '$ventas_total', `total_gastos` = '$gastos_total', `total_neto` = '$total' WHERE `year` = '$year' AND `mes` = '$month';";
 				$exe_update = $con->query($update);
 				header("location: ../../../?page=inicio");
 			}
